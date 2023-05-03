@@ -4,10 +4,10 @@ session_start();
 if(isset($_SESSION['user_id'])) {
     $conn = mysqli_connect("localhost", "root", "11111111", "store");
 
-    $user_id = $_SESSION['user_id'];
-    $p_ID = $_POST['p_ID'];
+    $ID = $_SESSION['user_id'];
+    $product_id = $_POST['product_id'];
 
-    $q = "DELETE FROM cart WHERE p_ID='$p_ID' AND u_ID='$user_id'";
+    $q = "DELETE FROM carts WHERE product_id='$product_id' AND ID='$ID'";
     $result = mysqli_query($conn, $q);
 
     if($result) {

@@ -30,9 +30,9 @@ session_start();
 if(isset($_SESSION['user_id'])) {
     $conn = mysqli_connect("localhost", "root", "11111111", "store");
 
-    $user_id = $_SESSION['user_id'];
+    $ID = $_SESSION['user_id'];
 
-    $q = "SELECT * FROM cart WHERE u_ID='$user_id'";
+    $q = "SELECT * FROM carts WHERE ID='$ID'";
     $result = mysqli_query($conn, $q);
 
     if(mysqli_num_rows($result) > 0) {
@@ -48,10 +48,10 @@ if(isset($_SESSION['user_id'])) {
 
         while($row = mysqli_fetch_assoc($result)) {
             echo "<tr>";
-            echo "<td><img src='data:image/jpeg;base64,".base64_encode($row['image'])."'></td>";
-            echo "<td>".$row['name']."</td>";
+            echo "<td><img src='data:image/jpeg;base64,".base64_encode($row['product_image'])."'></td>";
+            echo "<td>".$row['product_name']."</td>";
             echo "<td>".$row['price']."</td>";
-            echo "<td><form method='POST' action='cart_delete_process.php'><input type='hidden' name='p_ID' value='".$row['p_ID']."'><button class='cart-btn' type='submit'>삭제</button></form></td>";
+            echo "<td><form method='POST' action='cart_delete_process.php'><input type='hidden' name='product_id' value='".$row['product_id']."'><button class='cart-btn' type='submit'>삭제</button></form></td>";
             echo "</tr>";
 
             $total_price += $row['price'];

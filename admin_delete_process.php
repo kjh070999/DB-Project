@@ -1,7 +1,7 @@
 <?php
 $conn = mysqli_connect("localhost", "root", "11111111", "store");
-$ID = $_POST['ID'];
-$sql = "DELETE FROM product WHERE ID = $ID";
+$product_id = $_POST['product_id'];
+$sql = "DELETE FROM products WHERE product_id = '$product_id'";
 $result = mysqli_query($conn, $sql);
 header('Location: admin.php');
 ?>

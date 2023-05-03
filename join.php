@@ -14,6 +14,10 @@
                 <input type="text" name="user_id" placeholder="user_id"><br>
                 <input type="password" name="user_pw" placeholder="user_pw"><br>
                 <input type="password" name="check_user_pw" placeholder="check user_pw"><br>
+                <input type="text" name="name" placeholder="name"><br>
+                <input type="text" name="address" placeholder="address"><br>
+                <input type="text" name="phone_number" placeholder="phone_number"><br>
+
                 <input type="submit" value="회원가입">
             </form>
         </div>

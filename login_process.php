@@ -11,13 +11,13 @@
    $user_id = $_POST['user_id'];
    $user_pw = $_POST['user_pw'];
       
-   $q = "SELECT * FROM users WHERE user_id = '$user_id' AND user_pw = '$user_pw'";
+   $q = "SELECT * FROM user WHERE user_id = '$user_id' AND user_pw = '$user_pw'";
    $result = $mysqli->query($q);
    $row = $result->fetch_array(MYSQLI_ASSOC);
       
    //결과가 존재하면 세션 생성
    if ($row != null) {
-      $_SESSION['user_id'] = $row['ID']; // 이 부분을 변경해줍니다.
+      $_SESSION['user_id'] = $row['ID']; 
       if($row['user_admin'] == 1) {
          echo "<script>location.replace('admin.php');</script>";
          exit;

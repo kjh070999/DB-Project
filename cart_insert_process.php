@@ -4,18 +4,19 @@ session_start();
 if(isset($_SESSION['user_id'])) {
     $conn = mysqli_connect("localhost", "root", "11111111", "store");
 
-    $user_id = $_SESSION['user_id'];
-    $p_ID = $_POST['ID'];
+    $ID = $_SESSION['user_id'];
+    $product_id = $_POST['product_id'];
 
-    $q = "SELECT * FROM product WHERE ID='$p_ID'";
+    $q = "SELECT * FROM products WHERE product_id ='$product_id'";
     $result = mysqli_query($conn, $q);
     $row = mysqli_fetch_assoc($result);
 
-    $name = $row['name'];
-    $price = $row['price'];
-    $image = base64_encode($row['image']);
 
-    $q = "INSERT INTO cart (u_ID, p_ID, name, price, image) VALUES ('$user_id', '$p_ID', '$name', '$price', '0')";
+    $product_name = $row['product_name'];
+    $price = $row['price'];
+    $product_image = base64_encode($row['product_image']);
+
+    $q = "INSERT INTO carts (ID, product_id, product_name, price, product_image) VALUES ('$ID', '$product_id', '$product_name', '$price', '0')";
     $result = mysqli_query($conn, $q);
 
     if($result) {

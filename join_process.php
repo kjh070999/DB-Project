@@ -12,8 +12,11 @@ $conn = mysqli_connect($host, $user, $pw, $db_name);
 $signup_id = $_POST['user_id'];
 $signup_pw = $_POST['user_pw'];
 $signup_check_pw = $_POST['check_user_pw'];
+$signup_name = $_POST['name'];
+$signup_address = $_POST['address'];
+$signup_phone_number = $_POST['phone_number'];
 
-$query = "SELECT * FROM users WHERE user_id='$signup_id'";
+$query = "SELECT * FROM user WHERE user_id='$signup_id'";
 $result = mysqli_query($conn, $query);
 
 if (mysqli_num_rows($result) > 0) {
@@ -23,7 +26,7 @@ if (mysqli_num_rows($result) > 0) {
    echo '<script>alert("입력한 두 비밀번호가 일치하지 않습니다. 다시 입력해주세요.");</script>';
    echo '<script>history.back();</script>';
 } else {
-   $sql = "INSERT INTO users (user_id, user_pw, user_admin) VALUES ('$signup_id', '$signup_pw', 0)";
+   $sql = "INSERT INTO user (user_id, user_pw, user_admin, name, address, phone_number) VALUES ('$signup_id', '$signup_pw', 0, '$signup_name', '$signup_address', '$signup_phone_number')";
 
    if ($signup_id == "" || $signup_pw == "" || $signup_check_pw == "") {
        echo '<script>alert("비어있는 항목이 있습니다.");</script>';

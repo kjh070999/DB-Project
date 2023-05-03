@@ -18,28 +18,28 @@
     <?php
       $conn = mysqli_connect("localhost", "root", "11111111", "store");
 
-      $ID = $_POST['ID'];
-      $sql = "SELECT * FROM product WHERE ID=$ID";
+      $product_id = $_POST['product_id'];
+
+      $sql = "SELECT * FROM products WHERE product_id='$product_id'";
       $result = mysqli_query($conn, $sql);
       $row = mysqli_fetch_assoc($result);
-
-      $name = $row['name'];
+      $product_name = $row['product_name'];
       $price = $row['price'];
-      $image = $row['image'];
+      $product_image = $row['product_image'];
     ?>
 
     <form method="post" action="admin_update_process.php" enctype="multipart/form-data">
-      <input type="hidden" name="ID" value="<?php echo $ID; ?>">
+      <input type="hidden" name="product_id" value="<?php echo $product_id; ?>">
       <label>상품명</label>
-      <input type="text" name="name" value="<?php echo $name; ?>" required>
+      <input type="text" name="product_name" value="<?php echo $product_name; ?>" required>
       <br>
       <label>가격</label>
       <input type="number" name="price" value="<?php echo $price; ?>" required>
       <br>
       <label>이미지</label>
-      <input type="file" name="image">
+      <input type="file" name="product_image">
       <br>
-      <img src="data:image/jpeg;base64,<?php echo base64_encode($image); ?>" alt="상품 이미지" width="200">
+      <img src="data:product_image/jpeg;base64,<?php echo base64_encode($product_image); ?>" alt="상품 이미지" width="200">
       <br>
       <button type="submit">수정하기</button>
     </form>

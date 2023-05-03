@@ -1,11 +1,12 @@
 <?php
     $conn = mysqli_connect("localhost", "root", "11111111", "store");
 
-    $name = $_POST['name'];
+    $product_id = $_POST['product_id'];
+    $product_name = $_POST['product_name'];
     $price = $_POST['price'];
-    $image = addslashes(file_get_contents($_FILES['image']['tmp_name']));
+    $product_image = addslashes(file_get_contents($_FILES['product_image']['tmp_name']));
 
-    $sql = "INSERT INTO product (name, price, image) VALUES ('$name', $price, '$image')";
+    $sql = "INSERT INTO products (product_id, product_name, price, product_image) VALUES ('$product_id', '$product_name', $price, '$product_image')";
     mysqli_query($conn, $sql);
 
     header('Location: admin.php');

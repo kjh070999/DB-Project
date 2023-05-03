@@ -14,13 +14,12 @@
         session_start();
         if(isset($_SESSION['user_id'])) {
             $user_id = $_SESSION['user_id'];
-
             $conn = mysqli_connect("localhost", "root", "11111111", "store");
 
-            $sql = "SELECT user_ID FROM users where ID = $user_id";
+            $sql = "SELECT name FROM user where ID = $user_id";
             $result = mysqli_query($conn, $sql);
             $row = mysqli_fetch_assoc($result);
-            echo "<span style='font-size: 24px; color: #333; margin-right: 10px;'>{$row['user_ID']}님 환영합니다</span></br>";
+            echo "<span style='font-size: 24px; color: #333; margin-right: 10px;'>{$row['name']}님 환영합니다</span></br>";
 
             echo "<a href='logout.php' class='btn-login'>로그아웃</a>";
             echo "<span style='margin-left: 10px'></span>";
@@ -43,7 +42,7 @@
     <?php
       $conn = mysqli_connect("localhost", "root", "11111111", "store");
 
-      $sql = "SELECT * FROM product";
+      $sql = "SELECT * FROM products";
       $result = mysqli_query($conn, $sql);
 
       echo "<table>";
@@ -55,16 +54,23 @@
       echo "<th>장바구니</th>";
       echo "</tr>";
       while ($row = mysqli_fetch_assoc($result)) {
-        $ID = $row['ID'];
+        /* $ID = $row['ID'];
         $name = $row['name'];
         $price = $row['price'];
-        $image = $row['image'];
+        $image = $row['image']; */
+        $product_id = $row['product_id'];
+        $product_name = $row['product_name'];
+        $price = $row['price'];
+        $product_image = $row['product_image'];
+
+
+
         echo "<tr>";
-        echo "<td><img class='product-image' src='data:image/jpeg;base64," . base64_encode($image) . "' alt='상품 이미지'></td>";
-        echo "<td class='product-name'>$name</td>";
+        echo "<td><img class='product-image' src='data:image/jpeg;base64," . base64_encode($product_image) . "' alt='상품 이미지'></td>";
+        echo "<td class='product-name'>$product_name</td>";
         echo "<td class='product-price'>$price 원</td>";
-        echo "<td><form method='post' action='detail.php'><input type='hidden' name='ID' value='$ID'><button class='btn' type='submit'>상세정보</button></form></td>";
-        echo "<td><form method='post' action='cart_insert_process.php'><input type='hidden' name='ID' value='$ID'><button class='btn' type='submit'>장바구니</button></form></td>";
+        echo "<td><form method='post' action='detail.php'><input type='hidden' name='product_id' value='$product_id'><button class='btn' type='submit'>상세정보</button></form></td>";
+        echo "<td><form method='post' action='cart_insert_process.php'><input type='hidden' name='product_id' value='$product_id'><button class='btn' type='submit'>장바구니</button></form></td>";
         echo "</tr>";
       }
       echo "</table>";

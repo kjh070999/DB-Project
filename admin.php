@@ -27,7 +27,7 @@
         <?php
           $conn = mysqli_connect("localhost", "root", "11111111", "store");
 
-          $sql = "SELECT * FROM product";
+          $sql = "SELECT * FROM products";
           $result = mysqli_query($conn, $sql);
 
           echo "<table>";
@@ -39,24 +39,24 @@
           echo "<th>삭제</th>";
           echo "</tr>";
           while ($row = mysqli_fetch_assoc($result)) {
-            $ID = $row['ID'];
-            $name = $row['name'];
-            $price = $row['price'];
-            $image = $row['image'];
 
+            $product_id = $row['product_id'];
+            $product_name = $row['product_name'];
+            $price = $row['price'];
+            $product_image = $row['product_image'];
             echo "<tr>";
-            echo "<td><img src='data:image/jpeg;base64," . base64_encode($image) . "' alt='상품 이미지' width='200'></td>";
-            echo "<td class='product-name'>$name</td>";
+            echo "<td><img src='data:image/jpeg;base64," . base64_encode($product_image) . "' alt='상품 이미지' width='200'></td>";
+            echo "<td class='product-name'>$product_name</td>";
             echo "<td class='product-price'>$price 원</td>";
             echo "<td>";
             echo "<form method='post' action='admin_update.php'>";
-            echo "<input type='hidden' name='ID' value='$ID'>";
+            echo "<input type='hidden' name='product_id' value='$product_id'>";
             echo "<button class='btn' button type='submit'>UPDATE</button>";
             echo "</form>";
             echo "</td>";
             echo "<td>";
             echo "<form method='post' action='admin_delete_process.php'>";
-            echo "<input type='hidden' name='ID' value='$ID'>";
+            echo "<input type='hidden' name='product_id' value='$product_id'>";
             echo "<button class='btn' button type='submit'>DELETE</button>";
             echo "</form>";
             echo "</td>";
