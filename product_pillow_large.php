@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <title>STORE</title>
   </head>
-  <body>
     <div style="background-color: #f2f2f2; padding: 20px;">
         <div align="center">
             <h1 style="font-family: 'Arial Black', sans-serif; font-size: 72px; color: #555555;">
@@ -39,36 +38,52 @@
     <ol>
       <li><a href="product_bedding_home.php">이불</a></li>
       <li><a href="product_pillow_home.php">베개</a></li>
+        <ol>
+          <li><a href="product_pillow_fabric1.php">fabric별</a></li>
+          <li><a href="product_pillow_small.php">size별</a></li>
+            <ol>
+              <li><a href="product_pillow_small.php">small</a></li>
+              <li><a href="product_pillow_medium.php">medium</a></li>
+              <li><a href="product_pillow_large.php">large</a></li>
+            </ol>
+        </ol>
     </ol>
 
-    <div align = 'center'>
-        <?php
-        $conn = mysqli_connect("localhost", "root", "11111111", "store");
-        $product_id = $_POST['product_id'];
-        $sql = "SELECT * FROM products WHERE product_id = '$product_id'";
-        $result = mysqli_query($conn, $sql);
-        while ($row = mysqli_fetch_assoc($result)) {
-            $product_id = $row['product_id'];
-            $fabric_id = $row['fabric_id'];
-            $product_name = $row['product_name'];
-            $form = $row['form'];
-            $size = $row['size'];
-            $price = $row['price'];
-            $product_image = $row['product_image'];
-            
 
-            echo "<img class='product-image' src='data:image/jpeg;base64," . base64_encode($product_image) . "' alt='상품 이미지'><br>";
-            echo "제품 ID : $product_id</td><br>";
-            echo "재질 : $fabric_id</td><br>";
-            echo "제품 이름 : $product_name</td><br>";
-            echo "종류 : $form</td><br>";
-            echo "사이즈 : $size</td><br>";
-            echo "가격 : $price 원<br>";
-            echo "<form method='post' action='cart_insert_process.php'><input type='hidden' name='product_id' value='$product_id'><button class='btn' type='submit'>장바구니</button></form><br>";
-        }
+    <h2>베개 - Large 상품</h2>
 
-        ?>
-    </div>
+    <?php
+      $conn = mysqli_connect("localhost", "root", "11111111", "store");
+
+      $sql = "SELECT * FROM products where form = '베개' and size = 'large'";
+      $result = mysqli_query($conn, $sql);
+
+      echo "<table>";
+      echo "<tr>";
+      echo "<th>이미지</th>";
+      echo "<th>상품명</th>";
+      echo "<th>가격</th>";
+      echo "<th>상세정보</th>";
+      echo "<th>장바구니</th>";
+      echo "</tr>";
+      while ($row = mysqli_fetch_assoc($result)) {
+        $product_id = $row['product_id'];
+        $product_name = $row['product_name'];
+        $price = $row['price'];
+        $product_image = $row['product_image'];
+
+
+
+        echo "<tr>";
+        echo "<td><img class='product-image' src='data:image/jpeg;base64," . base64_encode($product_image) . "' alt='상품 이미지'></td>";
+        echo "<td class='product-name'>$product_name</td>";
+        echo "<td class='product-price'>$price 원</td>";
+        echo "<td><form method='post' action='detail.php'><input type='hidden' name='product_id' value='$product_id'><button class='btn' type='submit'>상세정보</button></form></td>";
+        echo "<td><form method='post' action='cart_insert_process.php'><input type='hidden' name='product_id' value='$product_id'><button class='btn' type='submit'>장바구니</button></form></td>";
+        echo "</tr>";
+      }
+      echo "</table>";
+    ?>
 
   </body>
 </html>
@@ -94,8 +109,8 @@
     background-color: #ddd;
   }
   .product-image {
-    width: 500px;
-    height: 500px;
+    width: 200px;
+    height: 200px;
     object-fit: contain;
   }
   .product-name {
@@ -175,3 +190,4 @@
     font-weight: normal;
   }
 </style>
+

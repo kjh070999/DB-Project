@@ -5,10 +5,15 @@
         <title>STORE</title>
     </head>
     <body>
+        <div style="background-color: #f2f2f2; padding: 20px;">
+            <div align="center">
+                <h1 style="font-family: 'Arial Black', sans-serif; font-size: 72px; color: #555555;">
+                    <a href="main.php" style="text-decoration: none; color: #555555;">COTTON GALLERY</a>
+                </h1>
+                <p style="font-family: Arial, sans-serif; font-size: 24px; color: #888888;">The Best Cotton Products</p>
+            </div>
+        </div>
         <div class="container">
-            <h1 class="logo">
-                <a href="main.php">SHOP</a>
-            </h1>
             <form class="form" method="post" action="join_process.php">
                 <h2>회원가입</h2>
                 <input type="text" name="user_id" placeholder="user_id"><br>
