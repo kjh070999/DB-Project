@@ -21,6 +21,8 @@
       <a href = 'admin.php' class = 'btn-login'> UPDATE/DELETE </a>
       <span style='margin-left: 20px'></span>
       <a href = 'admin_insert.php'class = 'btn-login'> INSERT </a>
+      <span style='margin-left: 20px'></span>
+      <a href = 'admin_order.php'class = 'btn-login'> 주문확인 </a>
     </div>
     <table>
       <tbody>
@@ -72,6 +74,9 @@
 </html>
 
 <style>
+  body{
+    margin: 0 80px;
+  }
   table {
     border-collapse: collapse;
     width: 100%;

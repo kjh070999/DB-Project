@@ -32,6 +32,8 @@
             echo "<a href='login.php' class='btn-login'>로그인</a>";
             echo "<span style='margin-left: 10px'></span>";
             echo "<a href='join.php' class='btn-join'>회원가입</a>";
+            echo "<span style='margin-left: 10px'></span>";
+            echo "<a href='purchase_check.php' class='btn'>주문확인</a>";
         }
       ?>
     </div>
@@ -90,6 +92,9 @@
 
 
 <style>
+  body{
+    margin: 0 80px;
+  }
   table {
     border-collapse: collapse;
     width: 100%;

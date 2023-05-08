@@ -26,7 +26,9 @@
 
             echo "<a href='logout.php' class='btn-login'>로그아웃</a>";
             echo "<span style='margin-left: 10px'></span>";
-            echo "<a href='cart.php' class='btn'>장바구니</a>";        
+            echo "<a href='cart.php' class='btn'>장바구니</a>";
+            echo "<span style='margin-left: 10px'></span>";
+            echo "<a href='purchase_check.php' class='btn'>주문확인</a>";        
         }
         else {
             echo "<a href='login.php' class='btn-login'>로그인</a>";
@@ -84,6 +86,9 @@
 
 
 <style>
+  body{
+    margin: 0 80px;
+  }
   table {
     border-collapse: collapse;
     width: 100%;

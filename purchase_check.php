@@ -12,6 +12,13 @@
             <p style="font-family: Arial, sans-serif; font-size: 24px; color: #888888;">The Best Cotton Products</p>
         </div>
     </div>
+
+    <div align = 'center'>
+      <h1 style='font-family: "Arial Black", sans-serif; font-size: 52px;'>
+        주문 내역 확인
+      </h1>
+    </div>
+
     <div align = 'right'>
         <?php
         session_start();
@@ -40,68 +47,45 @@
 
         $ID = $_SESSION['user_id'];
 
-        if(isset($_POST['product_id']) && isset($_POST['count'])) {
-            $product_id = $_POST['product_id'];
-            $count = $_POST['count'];
-            $q = "UPDATE carts SET count='$count' WHERE ID='$ID' AND product_id='$product_id'";
-            mysqli_query($conn, $q);
-        }
-
-        $q = "SELECT * FROM carts WHERE ID='$ID'";
+        $q = "SELECT * FROM order_queue WHERE ID = '$ID'";
         $result = mysqli_query($conn, $q);
 
-        if(mysqli_num_rows($result) > 0) {
-            $total_price = 0;
+        while ($row = mysqli_fetch_assoc($result)) {
+            $order_id =  $row['order_id'];
+            $total_price = $row['total_price'];
+            $process = $row['process'];
+            $p = "SELECT * FROM order_sheet WHERE order_id = '$order_id'";
+            $presult = mysqli_query($conn, $p);
 
             echo "<table>";
             echo "<tr>";
-            echo "<th>사진</th>";
+            echo "<th>주문 번호</th>";
             echo "<th>상품명</th>";
-            echo "<th>가격</th>";
             echo "<th>개수</th>";
-            echo "<th>삭제</th>";
+            echo "<th>총 금액</th>";
+            echo "<th>주문 진행 상황</th>";
             echo "</tr>";
 
-            while($row = mysqli_fetch_assoc($result)) {
-                $product_id = $row['product_id'];
-                $count = $row['count'];
-
-                $p = "SELECT * FROM products WHERE product_id = '$product_id'";
-                $presult = mysqli_query($conn, $p);
-                $prow = mysqli_fetch_assoc($presult);
-
-                $tprice = $prow['price'] * $count;
-                $product_name = $prow['product_name'];
-                $price = $prow['price'];
-
+            while($prow = mysqli_fetch_assoc($presult)) {
+                $product_id = $prow['product_id'];
+                $count = $prow['count'];
 
                 echo "<tr>";
-                echo "<td><img src='data:image/jpeg;base64," . base64_encode($prow['product_image']) . "' alt='상품 이미지' width='200'></td>";
-                echo "<td>".$product_name."</td>";
-                echo "<td>".$price."원</td>";
+                echo "<td>".$order_id."</td>";
+                echo "<td>".$product_id."</td>";
+                echo "<td>".$count."개</td>";
+                echo "<td>".$total_price."원</td>";
+                echo "<td>".$process."</td>";
                 echo "<td>";
-                echo "<form method='POST' action='".$_SERVER['PHP_SELF']."' class='product-count-form'>";
-                echo "<input type='hidden' name='product_id' value='".$product_id."'>";
-                echo "<input type='number' name='count' value='".$count."' min='1' max='100' onchange='this.form.submit()' class='product-count-input'>";
-                echo "</form>";
                 echo "</td>";
-                echo "<td><form method='POST' action='cart_delete_process.php'><input type='hidden' name='product_id' value='".$product_id."'><button class='cart-btn' type='submit'>삭제</button></form></td>";
                 echo "</tr>";
-
-                $total_price += $tprice;
+                
             }
+            echo "</table><br><br><br>";
+        }
 
-            echo "</table>";
 
-            echo "<p style='font-size: 24px; text-align: right;'> 총 합계 금액: ".$total_price."원</p>";
 
-            echo "<form method='post' action='purchase.php'>";
-            echo "<input type='hidden' name='ID' value='$ID'>";
-            echo "<button class = 'purchase-btn' button type='submit'>주문하기</button>";
-            echo "</form>";
-            } else {
-                echo "<p class='empty-cart'>장바구니가 비어있습니다.</p>";
-            }
         } else {
             echo "<script>alert('로그인 후 이용해주세요.')</script>";
             echo "<script>location.replace('login.php');</script>";
@@ -114,6 +98,7 @@
         margin: 0 80px;
     }
     table {
+        table-layout: fixed;
         border-collapse: collapse;
         width: 100%;
     }

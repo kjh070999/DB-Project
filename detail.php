@@ -75,6 +75,9 @@
 
 
 <style>
+  body{
+    margin: 0 80px;
+  }
   table {
     border-collapse: collapse;
     width: 100%;

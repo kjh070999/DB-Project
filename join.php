@@ -30,6 +30,7 @@
 </html>
 <style>
     body {
+        margin: 0 80px;
         background-color: #f2f2f2;
         font-family: Arial, sans-serif;
     }
