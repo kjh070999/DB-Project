@@ -28,6 +28,7 @@
         </div>
     </body> 
 </html>
+
 <style>
     body {
         margin: 0 80px;
