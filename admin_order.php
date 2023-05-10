@@ -10,19 +10,19 @@
       </h1>
     </div>
     <div align = 'right'>
-      <?php
+    <?php
         session_start();
         if(isset($_SESSION['user_id'])) {
             $user_id = $_SESSION['user_id'];
             echo "<a href='logout.php' class='btn-login'>로그아웃</a></br>";
         }
-      ?>
-    
-      <a href = 'admin.php' class = 'btn-login'> UPDATE/DELETE </a>
-      <span style='margin-left: 20px'></span>
-      <a href = 'admin_insert.php'class = 'btn-login'> INSERT </a>
-      <span style='margin-left: 20px'></span>
-      <a href = 'admin_order.php'class = 'btn-login'> 주문확인 </a>
+    ?>
+
+        <a href = 'admin.php' class = 'btn-login'> UPDATE/DELETE </a>
+        <span style='margin-left: 20px'></span>
+        <a href = 'admin_insert.php'class = 'btn-login'> INSERT </a>
+        <span style='margin-left: 20px'></span>
+        <a href = 'admin_order.php'class = 'btn-login'> 주문확인 </a>
     </div>
 
     <?php
