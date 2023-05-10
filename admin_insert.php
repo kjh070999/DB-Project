@@ -24,7 +24,7 @@
       <select name="form">
         <?php
           $conn = mysqli_connect("localhost", "root", "11111111", "store");
-          $sql = "SELECT  *  FROM form";
+          $sql = "SELECT  distinct form  FROM form";
           $result = mysqli_query($conn, $sql);
           while ($row = mysqli_fetch_assoc($result)) {
             echo '<option value="' . $row['form'] . '">' . $row['form'] . '</option>';
@@ -35,7 +35,7 @@
       <select name="size">
         <?php
           $conn = mysqli_connect("localhost", "root", "11111111", "store");
-          $sql = "SELECT * FROM form";
+          $sql = "SELECT distinct size FROM form";
           $result = mysqli_query($conn, $sql);
           while ($row = mysqli_fetch_assoc($result)) {
             echo '<option value="' . $row['size'] . '">' . $row['size'] . '</option>';
