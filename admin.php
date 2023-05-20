@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>STORE</title>
   </head>
+  <link rel = "stylesheet" href = "style.css">
     <div align = 'center'>
       <h1 style='font-family: "Arial Black", sans-serif; font-size: 52px;'>
         관리자모드
@@ -72,71 +73,3 @@
 
   </body>
 </html>
-
-<style>
-  body{
-    margin: 0 80px;
-  }
-  table {
-    border-collapse: collapse;
-    width: 100%;
-    margin-bottom: 20px;
-  }
-  th, td {
-    text-align: left;
-    padding: 12px;
-  }
-  th {
-    background-color: #ddd;
-  }
-  tr:nth-child(even) {
-    background-color: #f2f2f2;
-  }
-  tr:hover {
-    background-color: #ddd;
-  }
-  .product-image {
-    width: 120px;
-    height: 120px;
-    object-fit: contain;
-  }
-  .product-name {
-    font-weight: bold;
-  }
-  .product-price {
-    color: #f60;
-    font-size: 16px;
-    font-weight: bold;
-  }
-  .btn {
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    padding: 8px 16px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 14px;
-    margin: 4px 2px;
-    cursor: pointer;
-  }
-  .btn:hover {
-    background-color: #3e8e41;
-  }
-
-  .btn-login, .btn-join {
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    padding: 8px 16px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 14px;
-    margin: 4px 2px;
-    cursor: pointer;
-  }
-  .btn-login:hover, .btn-join:hover {
-    background-color: #3e8e41;
-  }
-</style>

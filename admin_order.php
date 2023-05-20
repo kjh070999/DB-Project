@@ -1,9 +1,10 @@
 <!doctype html>
 <html>
-<head>
-    <meta charset="utf-8">
-    <title>STORE</title>
-  </head>
+    <head>
+        <meta charset="utf-8">
+        <title>STORE</title>
+    </head>
+    <link rel = "stylesheet" href = "style.css">
     <div align = 'center'>
       <h1 style='font-family: "Arial Black", sans-serif; font-size: 52px;'>
         관리자모드
@@ -102,129 +103,3 @@
             echo "</table><br><br><br>";
         }
     ?>
-
-<style>
-    body{
-        margin: 0 80;
-    }
-    table {
-        table-layout: fixed;
-        border-collapse: collapse;
-        width: 100%;
-    }
-
-    th, td {
-        text-align: left;
-        padding: 8px;
-    }
-
-    th {
-        background-color: #f2f2f2;
-    }
-
-    tr:nth-child(even) {
-        background-color: #f2f2f2;
-    }
-
-    tr:hover {
-        background-color: #ddd;
-    }
-
-    .cart-btn {
-        background-color: #4CAF50;
-        border: none;
-        color: white;
-        padding: 8px 16px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-        margin: 4px 2px;
-        cursor: pointer;
-        border-radius: 4px;
-    }
-
-    .cart-btn:hover {
-        background-color: #3e8e41;
-    }
-
-    .purchase-btn {
-        display: block;
-        margin: 0 auto;
-        background-color: #4CAF50;
-        border: none;
-        color: white;
-        padding: 12px 24px;
-        text-align: center;
-        text-decoration: none;
-        font-size: 18px;
-        cursor: pointer;
-        border-radius: 4px;
-    }
-
-    .purchase-btn:hover {
-        background-color: #3e8e41;
-    }
-
-    .empty-cart {
-        font-size: 18px;
-        text-align: center;
-        margin: 20px;
-    }
-    .btn-login, .btn-join {
-        background-color: #4CAF50;
-        border: none;
-        color: white;
-        padding: 8px 16px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 14px;
-        margin: 4px 2px;
-        cursor: pointer;
-    }
-    .btn-login:hover, .btn-join:hover {
-        background-color: #3e8e41;
-    }
-    .product-count-form {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .product-count-input {
-        width: 50px;
-        height: 30px;
-        margin-left: 10px;
-        border: 1px solid gray;
-        border-radius: 5px;
-        text-align: center;
-        font-size: 16px;
-    }
-    .order-status {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        margin-top: 1rem;
-    }
-
-    .order-status-select {
-        padding: 0.25rem 0.5rem;
-        font-size: 1rem;
-        border: none;
-        background-color: #f5f5f5;
-    }
-
-    .order-status-submit {
-        padding: 0.25rem 0.5rem;
-        font-size: 1rem;
-        border: none;
-        background-color: #7f7f7f;
-        color: #fff;
-        cursor: pointer;
-    }
-
-    .order-status-submit:hover {
-        background-color: #555;
-    }
-</style>

@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>STORE</title>
   </head>
+  <link rel = "stylesheet" href = "style.css">
     <div style="background-color: #f2f2f2; padding: 20px;">
         <div align="center">
             <h1 style="font-family: 'Arial Black', sans-serif; font-size: 72px; color: #555555;">
@@ -90,8 +91,6 @@
   </body>
 </html>
 
-
-<style>
   body{
     margin: 0 80px;
   }
@@ -194,5 +193,3 @@
     font-size: 16px;
     font-weight: normal;
   }
-</style>
-

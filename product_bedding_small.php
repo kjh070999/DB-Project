@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>STORE</title>
   </head>
+  <link rel = "stylesheet" href = "style.css">
     <div style="background-color: #f2f2f2; padding: 20px;">
         <div align="center">
             <h1 style="font-family: 'Arial Black', sans-serif; font-size: 72px; color: #555555;">
@@ -89,110 +90,3 @@
 
   </body>
 </html>
-
-
-<style>
-  body{
-    margin: 0 80px;
-  }
-  table {
-    border-collapse: collapse;
-    width: 100%;
-    margin-bottom: 20px;
-  }
-  th, td {
-    text-align: left;
-    padding: 12px;
-  }
-  th {
-    background-color: #ddd;
-  }
-  tr:nth-child(even) {
-    background-color: #f2f2f2;
-  }
-  tr:hover {
-    background-color: #ddd;
-  }
-  .product-image {
-    width: 200px;
-    height: 200px;
-    object-fit: contain;
-  }
-  .product-name {
-    font-weight: bold;
-  }
-  .product-price {
-    color: #f60;
-    font-size: 16px;
-    font-weight: bold;
-  }
-  .btn {
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    padding: 8px 16px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 14px;
-    margin: 4px 2px;
-    cursor: pointer;
-  }
-  .btn:hover {
-    background-color: #3e8e41;
-  }
-
-  .btn-login, .btn-join {
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    padding: 8px 16px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 14px;
-    margin: 4px 2px;
-    cursor: pointer;
-  }
-  .btn-login:hover, .btn-join:hover {
-    background-color: #3e8e41;
-  }
-
-  ol {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-  }
-
-  ol li {
-    margin: 10px 0;
-  }
-
-  ol a {
-    display: block;
-    padding: 10px;
-    text-decoration: none;
-    color: black;
-    font-size: 20px;
-    font-weight: bold;
-    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-  }
-
-  ol a:hover {
-    background-color: lightgray;
-    color: white;
-  }
-
-  ol ol {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-    margin-left: 20px;
-  }
-
-  ol ol a {
-    font-size: 16px;
-    font-weight: normal;
-  }
-</style>
-
